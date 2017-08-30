@@ -1,9 +1,41 @@
 .film-item-show-mode, .film-item-edit-mode {
   border: solid 1px black;
+  box-shadow: 10px 10px 5px #888888;
+  background-color: #FFE300;
 }
 
 .film-item-wrapper {
   margin-bottom: 20px;
+}
+
+form > * {
+  display: block;
+  width: 200px;
+  margin: auto;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+form > textarea {
+  height: 100px;
+}
+
+.back.film-item-edit-mode {
+  width: 220px;
+  left: 39.5%;
+}
+
+.submit-btn {
+  background-color: mediumseagreen;
+}
+
+.cancel-btn {
+  background-color: lightgray;
+}
+
+.delete-btn {
+  background-color: lightcoral;
 }
 
 /* Code below was adapted from https://davidwalsh.name/css-flip */
@@ -19,7 +51,7 @@
 }
 
 .flip-container, .front, .back {
-  width: 99%;
+  width: 98%;
   height: 300px;
 }
 

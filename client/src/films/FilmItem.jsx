@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import './FilmItem.css';
+import './FilmItem.css'
 
 class FilmItem extends React.Component {
   constructor() {
@@ -23,7 +23,14 @@ class FilmItem extends React.Component {
             {openingCrawl}
           </div>
           <div className="back film-item-edit-mode">
-            XABBLAU
+            <form>
+              <input value={title} type="text"></input>
+              <input value={episodeId} type="number"></input>
+              <textarea value={openingCrawl} type="text"></textarea>
+              <button type="button" className="submit-btn">Submit</button>
+              <button type="button" className="cancel-btn" onClick={() => this.setState({editMode: false})}>Cancel</button>
+              <button type="button" className="delete-btn">Delete</button>
+            </form>
           </div>
         </div>
       </div>
