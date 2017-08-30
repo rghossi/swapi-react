@@ -15,11 +15,11 @@ const port = process.env.PORT || 3001;
 app.use(bodyParser());
  
 app.get('/films', cors(), FilmsController.getAll);
+app.post('/films', cors(), FilmsController.createOne);
 app.put('/film/:id', cors(), FilmsController.updateOne);
 app.delete('/film/:id', cors(), FilmsController.deleteOne);
 
 app.get('/people', cors(), PeopleController.getAll);
-
 
 models.sequelize.sync({force: true})
   .then(() => {

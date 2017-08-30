@@ -59,6 +59,25 @@ function errorUpdateOne() {
   }
 }
 
+function requestCreateOne() {
+  return {
+    type: FilmConstants.REQUEST_CREATE_FILM
+  }
+}
+
+function successCreateOne(film) {
+  return {
+    type: FilmConstants.SUCCESS_CREATE_FILM,
+    film
+  }
+}
+
+function errorCreateOne() {
+  return {
+    type: FilmConstants.ERROR_CREATE_FILM
+  }
+}
+
 // ========== Async Actions ==========
 
 export function fetchAll() {
@@ -97,5 +116,22 @@ export function updateOne(film) {
       .then(res => res.json())
       .then(json => dispatch(successUpdateOne(film)))
       .catch(err => dispatch(errorUpdateOne()))
+  }
+}
+
+export function createOne(film) {
+  return function (dispatch) {
+    dispatch(requestCreateOne())
+    return fetch(`/films`, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({film})
+    })
+      .then(res => res.json())
+      .then(json => dispatch(successCreateOne(json.film)))
+      .catch(err => dispatch(errorCreateOne()))
   }
 }

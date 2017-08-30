@@ -40,3 +40,13 @@ export const updateOne = (req, res, next) => {
       console.error(err.stack)
     });
 }
+
+export const createOne = (req, res, next) => {
+  Film.create(req.body.film)
+    .then(film => {
+      res.json({status: "Created succesfully", film})
+    })
+    .catch(err => {
+      console.error(err.stack)
+    });
+}

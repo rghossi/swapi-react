@@ -26,7 +26,6 @@ FilmList.propTypes = {
       openingCrawl: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
-  // onCreateClick: PropTypes.func.isRequired,
   onUpdateClick: PropTypes.func.isRequired,
   onDeleteClick: PropTypes.func.isRequired
 }

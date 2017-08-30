@@ -25,6 +25,14 @@ export default (state = {}, action) => {
       return {...state, isUpdating: false, filmList: newFilmList}
     case FilmConstants.ERROR_UPDATE_FILM:
       return {...state, isUpdating: false, didInvalidate: true}
+    case FilmConstants.REQUEST_CREATE_FILM:
+      return {...state, isCreating: true}
+    case FilmConstants.SUCCESS_CREATE_FILM:
+      const filmListCopy = state.filmList.slice(0)
+      filmListCopy.push(action.film)
+      return {...state, isCreating: false, filmList: filmListCopy}
+    case FilmConstants.ERROR_CREATE_FILM:
+      return {...state, isCreating: false, didInvalidate: true}
     default:
       return state;
   }

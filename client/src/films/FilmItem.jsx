@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import FilmItemForm from './FilmItemForm'
-import './FilmItem.css'
 
 class FilmItem extends React.Component {
   constructor(props) {

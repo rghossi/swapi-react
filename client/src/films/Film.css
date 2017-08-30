@@ -27,6 +27,16 @@ form > textarea {
   margin-left: -102px;
 }
 
+.film-item-new-mode {
+  margin: auto;
+  width: 220px;
+  left: 50%;
+  border: solid 1px black;
+  box-shadow: 10px 10px 5px #888888;
+  background-color: #FFE300;
+  margin-top: 20px;
+}
+
 .submit-btn {
   background-color: mediumseagreen;
 }
