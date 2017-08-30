@@ -1,0 +1,3 @@
+export const REQUEST_FILMS = 'REQUEST_FILMS'
+export const RECEIVE_FILMS = 'RECEIVE_FILMS'
+export const ERROR_FILMS   = 'ERROR_FILMS'
