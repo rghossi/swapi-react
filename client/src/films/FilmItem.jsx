@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import FilmItemForm from './FilmItemForm'
 import './FilmItem.css'
 
 class FilmItem extends React.Component {
@@ -39,14 +40,12 @@ class FilmItem extends React.Component {
             {this.props.openingCrawl}
           </div>
           <div className="back film-item-edit-mode">
-            <form>
-              <input value={title} name="title" type="text" onChange={(e) => this.handleChange(e)}></input>
-              <input value={episodeId} name="episodeId" type="number" onChange={(e) => this.handleChange(e)}></input>
-              <textarea value={openingCrawl} name="openingCrawl" type="text" onChange={(e) => this.handleChange(e)}></textarea>
-              <button type="button" className="submit-btn" onClick={(film) => onUpdateClick(stateFilm)}>Submit</button>
-              <button type="button" className="cancel-btn" onClick={() => this.setState({editMode: false})}>Cancel</button>
-              <button type="button" className="delete-btn" onClick={onDeleteClick}>Delete</button>
-            </form>
+            <FilmItemForm 
+              film={stateFilm} 
+              handleChange={(e) => this.handleChange(e)}
+              onSubmitClick={() => onUpdateClick(stateFilm)}
+              onCancelClick={() => this.setState({editMode: false})}
+              onDeleteClick={onDeleteClick} />
           </div>
         </div>
       </div>
@@ -55,8 +54,8 @@ class FilmItem extends React.Component {
 }
 
 FilmItem.propTypes = {
-  onUpdateClick: PropTypes.func.isRequired,
-  onDeleteClick: PropTypes.func.isRequired,
+  onUpdateClick: PropTypes.func,
+  onDeleteClick: PropTypes.func,
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   episodeId: PropTypes.number.isRequired,
