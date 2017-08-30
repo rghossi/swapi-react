@@ -23,7 +23,8 @@ form > textarea {
 
 .back.film-item-edit-mode {
   width: 220px;
-  left: 38%;
+  left: 50%;
+  margin-left: -102px;
 }
 
 .submit-btn {
