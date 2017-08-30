@@ -2,12 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import FilmItem from './FilmItem'
 
-const FilmList = ({ films, onFilmClick }) => (
+const FilmList = ({ films, onUpdateClick, onDeleteClick }) => (
   <div>
     <h4>Click on any card to edit it!</h4>
     <ul>
       {films.map(film => (
-        <FilmItem key={film.id} {...film} onClick={() => onFilmClick(film.id)} />
+        <FilmItem 
+          key={film.id} 
+          {...film} 
+          onUpdateClick={() => onUpdateClick(film.id)}
+          onDeleteClick={() => onDeleteClick(film.id)} />
       ))}
     </ul>
   </div>
@@ -22,7 +26,8 @@ FilmList.propTypes = {
       openingCrawl: PropTypes.string.isRequired
     }).isRequired
   ).isRequired,
-  onFilmClick: PropTypes.func.isRequired
+  onUpdateClick: PropTypes.func.isRequired,
+  onDeleteClick: PropTypes.func.isRequired
 }
 
 export default FilmList

@@ -12,3 +12,19 @@ export const getAll = (req, res, next) => {
     });
 }
 
+export const deleteOne = (req, res, next) => {
+  Film.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(rowDeleted => {
+      if (rowDeleted === 1){
+        res.json({status: "Deleted succesfully"})
+      }
+    })
+    .catch(err => {
+      console.error(err.stack)
+    });
+}
+

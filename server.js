@@ -12,6 +12,8 @@ const app = express();
 const port = process.env.PORT || 3001;
  
 app.get('/films', cors(), FilmsController.getAll);
+app.delete('/film/:id', cors(), FilmsController.deleteOne);
+
 app.get('/people', cors(), PeopleController.getAll);
 
 

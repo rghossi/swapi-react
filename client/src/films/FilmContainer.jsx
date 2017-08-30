@@ -8,6 +8,14 @@ class FilmContainer extends React.Component {
     this.props.dispatch(FilmActions.fetchAll())
   }
 
+  onDeleteFilmItem(filmId){
+    this.props.dispatch(FilmActions.deleteOne(filmId))
+  }
+
+  onUpdateFilmItem(film){
+    // this.props.dispatch(FilmActions.updateOne(film))
+  }
+
   render() {
     const { isFetching, didInvalidate, films } = this.props
 
@@ -16,7 +24,10 @@ class FilmContainer extends React.Component {
     else if (didInvalidate || !films) 
       return <p>Something wrong is not right :/</p>
     else
-      return <FilmList films={films} onFilmClick={() => console.log("bla")}/>
+      return <FilmList 
+        films={films} 
+        onUpdateClick={this.onUpdateFilmItem}
+        onDeleteClick={(id) => this.onDeleteFilmItem(id)}/>
 
   }
 }

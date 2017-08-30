@@ -12,7 +12,7 @@ class FilmItem extends React.Component {
   }
 
   render() {
-    const { id, title, episodeId, openingCrawl, onClick } = this.props
+    const { title, episodeId, openingCrawl, onUpdateClick, onDeleteClick } = this.props
     const wrapper = classNames({"flip-container": true, "film-item-wrapper": true, "flip": this.state.editMode})
     return (
       <div className={wrapper}>
@@ -29,7 +29,7 @@ class FilmItem extends React.Component {
               <textarea value={openingCrawl} type="text"></textarea>
               <button type="button" className="submit-btn">Submit</button>
               <button type="button" className="cancel-btn" onClick={() => this.setState({editMode: false})}>Cancel</button>
-              <button type="button" className="delete-btn">Delete</button>
+              <button type="button" className="delete-btn" onClick={onDeleteClick}>Delete</button>
             </form>
           </div>
         </div>
@@ -39,7 +39,8 @@ class FilmItem extends React.Component {
 }
 
 FilmItem.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  onUpdateClick: PropTypes.func.isRequired,
+  onDeleteClick: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   episodeId: PropTypes.number.isRequired,
