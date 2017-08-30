@@ -28,3 +28,15 @@ export const deleteOne = (req, res, next) => {
     });
 }
 
+export const updateOne = (req, res, next) => {
+  Film.update(
+    req.body.film,
+    { where: { id: req.params.id }
+  })
+    .then(result => {
+      res.json({status: "Updated succesfully"})
+    })
+    .catch(err => {
+      console.error(err.stack)
+    });
+}

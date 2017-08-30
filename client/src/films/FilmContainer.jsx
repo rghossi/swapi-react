@@ -13,7 +13,7 @@ class FilmContainer extends React.Component {
   }
 
   onUpdateFilmItem(film){
-    // this.props.dispatch(FilmActions.updateOne(film))
+    this.props.dispatch(FilmActions.updateOne(film))
   }
 
   render() {
@@ -26,7 +26,7 @@ class FilmContainer extends React.Component {
     else
       return <FilmList 
         films={films} 
-        onUpdateClick={this.onUpdateFilmItem}
+        onUpdateClick={(film) => this.onUpdateFilmItem(film)}
         onDeleteClick={(id) => this.onDeleteFilmItem(id)}/>
 
   }

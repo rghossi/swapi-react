@@ -10,7 +10,7 @@ const FilmList = ({ films, onUpdateClick, onDeleteClick }) => (
         <FilmItem 
           key={film.id} 
           {...film} 
-          onUpdateClick={() => onUpdateClick(film.id)}
+          onUpdateClick={onUpdateClick}
           onDeleteClick={() => onDeleteClick(film.id)} />
       ))}
     </ul>

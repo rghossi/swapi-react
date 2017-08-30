@@ -40,6 +40,25 @@ function errorDeleteOne() {
   }
 }
 
+function requestUpdateOne() {
+  return {
+    type: FilmConstants.REQUEST_UPDATE_FILM
+  }
+}
+
+function successUpdateOne(film) {
+  return {
+    type: FilmConstants.SUCCESS_UPDATE_FILM,
+    film
+  }
+}
+
+function errorUpdateOne() {
+  return {
+    type: FilmConstants.ERROR_UPDATE_FILM
+  }
+}
+
 // ========== Async Actions ==========
 
 export function fetchAll() {
@@ -59,7 +78,24 @@ export function deleteOne(filmId) {
       method: 'DELETE'
     })
       .then(res => res.json())
-      .then(films => dispatch(successDeleteOne(filmId)))
+      .then(json => dispatch(successDeleteOne(filmId)))
       .catch(err => dispatch(errorDeleteOne()))
+  }
+}
+
+export function updateOne(film) {
+  return function (dispatch) {
+    dispatch(requestUpdateOne())
+    return fetch(`/film/${film.id}`, {
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({film})
+    })
+      .then(res => res.json())
+      .then(json => dispatch(successUpdateOne(film)))
+      .catch(err => dispatch(errorUpdateOne()))
   }
 }
