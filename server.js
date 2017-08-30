@@ -15,7 +15,7 @@ app.get('/films', cors(), FilmsController.getAll);
 app.get('/people', cors(), PeopleController.getAll);
 
 
-models.sequelize.sync()
+models.sequelize.sync({force: true})
   .then(() => {
     fetchFilms();
     fetchPeople();
