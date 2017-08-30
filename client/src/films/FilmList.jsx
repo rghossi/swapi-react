@@ -3,11 +3,14 @@ import PropTypes from 'prop-types'
 import FilmItem from './FilmItem'
 
 const FilmList = ({ films, onFilmClick }) => (
-  <ul>
-    {films.map(film => (
-      <FilmItem key={film.id} {...film} onClick={() => onFilmClick(film.id)} />
-    ))}
-  </ul>
+  <div>
+    <h4>Click on any card to edit it!</h4>
+    <ul>
+      {films.map(film => (
+        <FilmItem key={film.id} {...film} onClick={() => onFilmClick(film.id)} />
+      ))}
+    </ul>
+  </div>
 )
 
 FilmList.propTypes = {
