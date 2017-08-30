@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FilmContainer from '../films/FilmContainer';
-import logo from './logo.svg';
+import logo from './sw-logo.png';
 import './App.css';
 
 class App extends Component {
