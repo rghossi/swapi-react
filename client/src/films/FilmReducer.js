@@ -5,7 +5,7 @@ export default (state = {}, action) => {
     case FilmConstants.REQUEST_FILMS:
       return {...state, isFetching: true}
     case FilmConstants.RECEIVE_FILMS:
-      return {...state, isFetching: false, films: action.films}
+      return {...state, isFetching: false, filmList: action.films}
     case FilmConstants.ERROR_FILMS:
       return {...state, isFetching: false, didInvalidate: true}
     default:

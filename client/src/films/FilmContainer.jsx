@@ -1,7 +1,7 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import FilmList from './FilmList';
-import * as FilmActions from './FilmActions';
+import React from 'react'
+import { connect } from 'react-redux'
+import FilmList from './FilmList'
+import * as FilmActions from './FilmActions'
 
 class FilmContainer extends React.Component {
   componentDidMount(){
@@ -9,12 +9,15 @@ class FilmContainer extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <p>Films</p>
-        <p>{this.props.films}</p>
-      </div>
-    )
+    const { isFetching, didInvalidate, films } = this.props
+
+    if (isFetching) 
+      return <p>Loading...</p>
+    else if (didInvalidate || !films) 
+      return <p>Something wrong is not right :/</p>
+    else
+      return <FilmList films={films} onFilmClick={() => console.log("bla")}/>
+
   }
 }
 
