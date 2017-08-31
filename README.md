@@ -24,3 +24,14 @@ Then, `yarn start` on root to start Express server.
 Wait a few seconds so the server can populate de database.
 
 Finally, run `yarn start` in client folder to start the react app. A new browser tab should open automatically.
+
+## Tests
+
+* Server
+
+`yarn test` on root folder
+
+* Client: 
+
+`yarn test` on client folder
+`yarn test -- --coverage` on client folder to see test coverage
