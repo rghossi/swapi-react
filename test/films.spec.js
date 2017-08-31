@@ -1,16 +1,19 @@
-let Film = require('../models').Film
+import models, {Film} from '../models'
+import chai from'chai'
+import chaiHttp from'chai-http'
+import server from'../server'
 
-let chai = require('chai')
-let chaiHttp = require('chai-http')
-let server = require('../server').default
 let should = chai.should()
 
 chai.use(chaiHttp);
 
 describe('Films', () => {
   beforeEach((done) => {
-    Film.destroy({where: {}})
+    models.sequelize.sync({force: true})
+    .then(() => {
+      Film.destroy({where: {}})
       .then((res) => done())
+    });
   });
 
   describe('/GET films', () => {
