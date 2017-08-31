@@ -2,13 +2,13 @@ import * as FilmConstants from './FilmConstants';
 
 // ========== Sync Actions ==========
 
-function requestFilms() {
+export function requestFilms() {
   return {
     type: FilmConstants.REQUEST_FILMS
   }
 }
 
-function receiveFilms(films) {
+export function receiveFilms(films) {
   return {
     type: FilmConstants.RECEIVE_FILMS,
     films
